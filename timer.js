@@ -3,7 +3,11 @@
 class Timer{
 
     constructor(limit){
-        this.limit = limit;
+        if(typeof(limit) !== "number"){
+            throw new Error("missing <limit> argument to the constructor ! ");
+        }
+
+        this.limit = limit; // (minute)
         this.minute = 60 * 1000; // (ms)
         this._id = undefined;
     }
@@ -19,28 +23,47 @@ class Timer{
     }
 
     _increment(){
-        chrome.browserAction.setBadgeText({text:(++this._time) + "m"});
+        if(this._time <= this.limit){
+            chrome.browserAction.setBadgeText({text:(++this._time) + "m"});
+        }else{
+            this.status = "finished";
+        }
     }
 
     start(){
         this._time = 0;
+        this._clear();
         this._setBadgeSettings(this._time + "m","green");
-        this._id = setInterval(this._increment.bind(this),this.minute) ;
+        this._id = setInterval(this._increment.bind(this),this.minute);
+        this.status = "started";
     }
 
     stop(){
-        this._time = 0;
-        this._clear();
-        this._setBadgeSettings("X","red");
+        if(this.status !== "stopped"){
+            this._time = 0;
+            this._clear();
+            this._setBadgeSettings("X","red");
+            this.status = "stopped";
+        }
     }
 
     pause(){
-        this._setBadgeSettings("P","yellow");
-        this._clear();
+        if(this.status !== "stopped"){
+            this._setBadgeSettings("P","yellow");
+            this._clear();
+            this.status = "paused";
+        }else{
+            throw new Error("can't pause timer if it's not running !");
+        }
     }
 
     resume(){
-        this._setBadgeSettings(this._time + "m","green");
-        this._id = setInterval(this._increment,this.minute);
+        if(this.status === "paused"){
+            this._setBadgeSettings(this._time + "m","green");
+            this._id = setInterval(this._increment.bind(this),this.minute);
+            this.status = "started";
+        }else{
+            throw new Error("can't resume timer if it's already working !");
+        }
     }
 }
