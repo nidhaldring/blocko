@@ -6,7 +6,7 @@
     "description": "block unwanted website",
 
     "background": {
-        "scripts": ["main.js","timer.js"]
+        "scripts": ["timer.js"]
     },
 
     "permissions": ["tabs","storage"],

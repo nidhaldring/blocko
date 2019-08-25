@@ -10,6 +10,7 @@ class Timer{
         this.limit = limit; // (minute)
         this.minute = 60 * 1000; // (ms)
         this._id = undefined;
+        this.status = "frozen";
     }
 
     _setBadgeSettings(text,color){
@@ -26,6 +27,7 @@ class Timer{
         if(this._time <= this.limit){
             chrome.browserAction.setBadgeText({text:(++this._time) + "m"});
         }else{
+            chrome.browserAction.setBadgeText({text:null});
             this.status = "finished";
         }
     }
@@ -67,3 +69,12 @@ class Timer{
         }
     }
 }
+
+
+// main 
+
+const timer = new Timer(60 * 60 * 1000);
+
+chrome.runtime.onMessage.addListener((msg) => {
+    timer[msg.text]();
+});
