@@ -1,7 +1,7 @@
 
 
 class Timer{
-
+    
     constructor(limit){
         if(typeof(limit) !== "number"){
             throw new Error("missing <limit> argument to the constructor ! ");
@@ -35,7 +35,7 @@ class Timer{
     start(){
         this._time = 0;
         this._clear();
-        this._setBadgeSettings(this._time + "m","green");
+        this._setBadgeSettings(this._time + "m","rgb(179, 0, 0)");
         this._id = setInterval(this._increment.bind(this),this.minute);
         this.status = "started";
     }
