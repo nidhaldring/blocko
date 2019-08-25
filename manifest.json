@@ -5,6 +5,14 @@
     "version": "1",
     "description": "block unwanted website",
 
+    "icons": {
+        "16": "icons/16.png",
+        "24": "icons/24.png",
+        "32": "icons/32.png",
+        "48": "icons/48.png",
+        "64": "icons/64.png"
+    },
+
     "background": {
         "scripts": ["timer.js"]
     },
@@ -17,7 +25,7 @@
     },
 
     "browser_action": {
-        "default_title": "blocko your way to block ! ",
+        "default_title": "blocko your way to block !",
         "default_popup": "popup.html"
     }
     
