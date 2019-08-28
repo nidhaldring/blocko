@@ -96,3 +96,18 @@ chrome.runtime.onMessage.addListener((msg) => {
     timer[msg.text]();
 });
 
+chrome.tabs.onUpdated.addListener((tabId,_,tab) => {
+    if(timer.status == "started"){
+        chrome.storage.local.get("sites",(res) => {
+            const url = tab.url;
+
+            for(let site of res.sites){            
+                if(url.match(new RegExp(`https?://${site}`))){
+                    chrome.tabs.update(tabId,{url:chrome.runtime.getURL("html/index.html")});
+                    break;   
+                }
+            }
+            
+        });
+    }
+});
