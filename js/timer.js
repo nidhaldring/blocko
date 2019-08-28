@@ -7,6 +7,7 @@ class Timer{
     constructor(){
         this._id = undefined;
         this.status = "frozen";
+        this._setBadgeSettings("--","red");
     }
 
     _setBadgeSettings(text,color){
