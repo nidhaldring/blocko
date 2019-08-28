@@ -83,10 +83,16 @@ class Timer{
 }
 
 
-// main 
+
+// set defaults 
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.local.set({"sites":[]});
+    chrome.storage.local.set({"workTime":45});
+});
 
 const timer = new Timer();
 
 chrome.runtime.onMessage.addListener((msg) => {
     timer[msg.text]();
 });
+
