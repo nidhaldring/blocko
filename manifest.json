@@ -20,13 +20,13 @@
     "permissions": ["storage"],
 
     "options_ui": {
-        "page": "config.html",
+        "page": "html/config.html",
         "open_in_tab": true
     },
 
     "browser_action": {
         "default_title": "blocko your way to stay productive !",
-        "default_popup": "popup.html"
+        "default_popup": "html/popup.html"
     }
     
 }
