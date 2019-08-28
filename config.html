@@ -1,8 +1,44 @@
 
+<head>
+    <style>
+        #text {
+            display: block;
+            margin: 2px;
+            padding: 2px;
+        }
+
+        p {
+            font-size: 2em;
+            margin: 1px;
+            font-family: cursive;
+            color: red;
+        }
+
+        button {
+            display: block;
+            background-color: red;
+            width: 5%;
+            margin: 3%;
+        }
+
+        .input{
+            display: inline-block;
+            margin: 1px;
+            width: 7%;
+        }
+    </style>
+
+</head>
+
+
 <script src="config.js"></script>
-<p style="font-size:2em;">fill this area with sites to block</p>
-<p style="font-size:2em;">example : <span style="color:red;">www.example.com</span></p>
+<p>Sites to block</p>
 
 <textarea id="text" cols="30" rows="20" placeholder="www.example.com">
 </textarea>
-<br/>
+
+<p>Producitivity Settings</p>
+
+<span class="input">Work time : </span> <input type="number" min="1" max="999" id="workTime"> (m) <br/>
+
+<button id="save">Save</button>
