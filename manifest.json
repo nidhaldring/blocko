@@ -17,7 +17,7 @@
         "scripts": ["js/timer.js"]
     },
 
-    "permissions": ["storage"],
+    "permissions": ["storage","tabs"],
 
     "options_ui": {
         "page": "html/config.html",
