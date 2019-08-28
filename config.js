@@ -1,38 +1,32 @@
 
-/* helpers */
-
-function sendMessage(msg){
-    chrome.runtime.sendMessage(msg);
-}
-
-function createSaveBtn(){
-
-    btn = document.createElement("button");
-    btn.onclick = () => {
-        let text = document.getElementById("text").value;
-        sendMessage({text});
-    }
-    btn.innerText = "Save";
-    document.body.append(btn);
-}
-
 function initTextArea(){
-    // wait for the bg script to send the black list 
-    chrome.runtime.onMessage.addListener((req) => {
-        document.getElementById("text").value = req.sites.join("\n");
+    chrome.storage.local.get("sites",(res) => {
+        // if first time then leave the placeholder :)
+        if(res.sites.length > 0){
+            document.getElementById("text").value = res.sites.join("\n");
+        }
     });
 }
 
-/***************/
+function initInputFiled(id){
+    chrome.storage.local.get(id,(res) => {
+        document.getElementById(id).value = res[id]
+    });
+}
 
-// main method 
 document.addEventListener("DOMContentLoaded",() => {
-
-    createSaveBtn();
-
-    // wake bg script
-    sendMessage({text:"wake up"});
-
     initTextArea();
-    
+
+    document.getElementById("save").onclick = () => {
+        let sites = document.getElementById("text").value
+        let workTime = document.getElementById("workTime").value;
+
+        chrome.storage.local.set({"sites":sites.split("\n")});
+        chrome.storage.local.set({"workTime":parseInt(workTime)});
+
+        alert("Saved sucessfully !");
+    }
+
+    initInputFiled("workTime");
+
 });
