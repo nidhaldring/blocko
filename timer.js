@@ -20,7 +20,7 @@ class Timer{
     }
 
     _ring(){
-        new Audio(chrome.runtime.getURL("horn.mp3")).play();
+        new Audio(chrome.runtime.getURL("audio/horn.mp3")).play();
     }
 
     _finish(){
