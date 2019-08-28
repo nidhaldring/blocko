@@ -14,18 +14,18 @@
     },
 
     "background": {
-        "scripts": ["timer.js"]
+        "scripts": ["timer.js","events.js"]
     },
 
-    "permissions": ["tabs","storage"],
+    "permissions": ["storage"],
 
     "options_ui": {
         "page": "config.html",
-        "open_in_tab": false
+        "open_in_tab": true
     },
 
     "browser_action": {
-        "default_title": "blocko your way to block !",
+        "default_title": "blocko your way to stay productive !",
         "default_popup": "popup.html"
     }
     
