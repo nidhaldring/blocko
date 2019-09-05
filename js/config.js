@@ -19,14 +19,13 @@ function initTextArea(){
            textArea.value = res.sites.join("\n");
         }
 
-        textArea.onchange = () => validateTextAreaInput(textArea);
     });
 
 }
 
 function initWorkTimeFiled(){
     chrome.storage.local.get("workTime",(res) => {
-        document.getElementById("workTime").value = res[id]
+        document.getElementById("workTime").value = res["workTime"];
     });
 }
 
