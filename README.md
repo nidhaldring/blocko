@@ -4,6 +4,6 @@ The goal of this extension is to provide a helpful enviroment to be productive, 
 </p>
 
 <ul>
-<li> a timer </li>
+<li> a timer to track how productive you are</li>
 <li> a blacklist to block distracting websites while working </li>
 </ul>

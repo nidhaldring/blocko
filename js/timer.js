@@ -104,7 +104,7 @@ chrome.tabs.onUpdated.addListener((tabId,_,tab) => {
             const found = res.sites.find((e) => url.match(new RegExp(`https?://${e}`)) !== null);
            
             if(found !== undefined){
-                chrome.tabs.update(tabId,{url:chrome.runtime.getURL("html/index.html")});
+                chrome.tabs.update(tabId,{url:chrome.runtime.getURL("html/blockPage.html")});
             } 
         });
     }
