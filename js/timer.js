@@ -53,7 +53,7 @@ class Timer{
     }
 
     pause(){
-        if(this.status !== "stopped"){
+        if(this.status === "started"){
             this._setBadgeSettings("P","yellow");
             this._clear();
             this.status = "paused";
@@ -68,7 +68,7 @@ class Timer{
             this._id = setInterval(this._increment.bind(this),Timer.MINUTE);
             this.status = "started";
         }else{
-            throw new Error("can't resume timer if it's already working !");
+            throw new Error("can't resume timer if it's not paused!");
         }
     }
 }
