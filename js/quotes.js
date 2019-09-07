@@ -12,7 +12,7 @@ req.onload = () =>{
     const quoteObject = quotes[Math.floor(Math.random() * quotes.length)];
 
     document.getElementById("quote").innerText = quoteObject.quote;
-    document.getElementById("author").innerText =  "- " + quoteObject.name;
+    document.getElementById("author").innerHTML = "<q>" + quoteObject.name + "</q>";
 }
 
 req.send();
