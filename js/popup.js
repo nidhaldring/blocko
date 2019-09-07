@@ -32,9 +32,6 @@ function createOnclickFunc(pauseState,resumeState,msg){
 const startBtnOnclick = createOnclickFunc(false,true,"start");
 const startBtn = createButton("start","start","green",startBtnOnclick);
 
-const stopBtnOnclick = createOnclickFunc(true,true,"stop");
-const stopBtn = createButton("stop","stop","red",stopBtnOnclick);
-
 const pauseBtnOnclick = createOnclickFunc(true,false,"pause");
 const pauseBtn = createButton("pause","pause","yellow",pauseBtnOnclick);
 
@@ -44,5 +41,5 @@ const resumeBtn = createButton("resume","resume","white",resumeBtnOnclick);
 
 // main shit
 document.addEventListener("DOMContentLoaded",() => {
-    document.body.append(startBtn,stopBtn,pauseBtn,resumeBtn);
+    document.body.append(startBtn,pauseBtn,resumeBtn);
 });
