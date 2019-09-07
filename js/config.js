@@ -1,15 +1,32 @@
 
-function validateTextAreaInput(textArea){
+//filters
 
-    const values = textArea.value.split("\n");
-    const domainReg = /^((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+[A-Za-z]{2,6}$/;
-    const test = values.every((e) => e.match(domainReg));
-
-    if(!test){
-        textArea.focus();
-        alert("invalid input");
-    }   
+function filterTextAreaValues(values){
+    return values.filter((e) => e.trim() !== "" );
 }
+
+// getter 
+
+function getTextAreaValues(){  
+    return filterTextAreaValues(document.getElementById("text").value.split("\n"));
+}
+
+// validators
+
+function textAreaIsValid(){
+    const values = getTextAreaValues();
+    const domainReg = /www\.[a-zA-Z0-9_-]+\.[a-z]+$/;
+
+    return values.every((e) => e.match(domainReg));
+}
+
+function workTimeFieldIsValid(){
+    const input = Number(document.getElementById("workTime").value);
+    return !isNaN(input) && input > 0 && input < 1000;
+}
+
+
+// init funcs
 
 function initTextArea(){
     chrome.storage.local.get("sites",(res) => {
@@ -20,7 +37,6 @@ function initTextArea(){
         }
 
     });
-
 }
 
 function initWorkTimeFiled(){
@@ -29,19 +45,29 @@ function initWorkTimeFiled(){
     });
 }
 
+function saveConfigs(){
+    const sites = getTextAreaValues();
+    const workTime = Number(document.getElementById("workTime").value);
+
+    chrome.storage.local.set({sites});
+    chrome.storage.local.set({workTime});
+}
+
 function initSaveButton(){
     document.getElementById("save").onclick = () => {
-        const sites = document.getElementById("text").value
-        const workTime = document.getElementById("workTime").value;
-
-        chrome.storage.local.set({"sites":sites.split("\n")});
-        chrome.storage.local.set({"workTime":parseInt(workTime)});
-
-        alert("Saved sucessfully !");
+        if(!textAreaIsValid()){
+            alert("Input field is malformed !");
+        }else if(!workTimeFieldIsValid()){
+            alert("Work time field should be a number between 1 and 999 !");
+        }else{
+            saveConfigs();
+            alert("saved sucessfully !");
+        }
     }
 }
 
 // main
+
 document.addEventListener("DOMContentLoaded",() => {
     initTextArea();
     initSaveButton();
