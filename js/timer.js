@@ -52,15 +52,6 @@ class Timer{
         });
     }
 
-    stop(){
-        if(this.status !== "stopped"){
-            this._time = 0;
-            this._clear();
-            this._setBadgeSettings("X","red");
-            this.status = "stopped";
-        }
-    }
-
     pause(){
         if(this.status !== "stopped"){
             this._setBadgeSettings("P","yellow");
