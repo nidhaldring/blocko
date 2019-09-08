@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded",() => {
     document.body.append(startBtn,pauseBtn,resumeBtn);
 });
 
-// listen for when the background scripts sends the timer' status
+// listen for when the background script sends the timer' status
 chrome.runtime.onMessage.addListener((msg) => {
     pauseBtn.disabled = msg.status !== "started";
     resumeBtn.disabled = !(pauseBtn.disabled);
