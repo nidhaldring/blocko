@@ -1,4 +1,11 @@
 
+// set defaults 
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.local.set({"sites":[]});
+    chrome.storage.local.set({"workTime":45});
+});
+
+
 
 class Timer{
 
@@ -73,18 +80,18 @@ class Timer{
     }
 }
 
-
-
-// set defaults 
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.local.set({"sites":[]});
-    chrome.storage.local.set({"workTime":45});
-});
-
 const timer = new Timer();
 
+function sendTimerStatus(){
+    chrome.runtime.sendMessage({status:timer.status});
+}
+
 chrome.runtime.onMessage.addListener((msg) => {
-    timer[msg.text]();
+    if(msg.text === "status"){
+        sendTimerStatus();
+    }else{
+        timer[msg.text]();
+    }
 });
 
 

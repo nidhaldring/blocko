@@ -1,5 +1,4 @@
 
-
 function sendMessage(msg){
     chrome.runtime.sendMessage({text:msg});
 }
@@ -34,12 +33,20 @@ const startBtn = createButton("start","start","green",startBtnOnclick);
 
 const pauseBtnOnclick = createOnclickFunc(true,false,"pause");
 const pauseBtn = createButton("pause","pause","yellow",pauseBtnOnclick);
+pauseBtn.disabled = true;
 
 const resumeBtnOnclick = createOnclickFunc(false,true,"resume");
 const resumeBtn = createButton("resume","resume","white",resumeBtnOnclick);
+resumeBtn.disabled = true;
 
 
 // main shit
 document.addEventListener("DOMContentLoaded",() => {
+    sendMessage("status");
     document.body.append(startBtn,pauseBtn,resumeBtn);
+});
+
+chrome.runtime.onMessage.addListener((msg) => {
+    pauseBtn.disabled = msg.status !== "started";
+    resumeBtn.disabled = !pauseBtn.disabled;
 });
