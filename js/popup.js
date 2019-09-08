@@ -4,7 +4,7 @@ function sendMessage(msg){
 }
 
 function createButton(id,value,color,onclick){
-    let btn = document.createElement("button");
+    const btn = document.createElement("button");
     btn.id = id;
     btn.innerText = value;
     btn.onclick = onclick;
