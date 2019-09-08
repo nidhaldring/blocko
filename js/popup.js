@@ -42,11 +42,13 @@ resumeBtn.disabled = true;
 
 // main shit
 document.addEventListener("DOMContentLoaded",() => {
+    // send a request to get the status of the timer 
     sendMessage("status");
     document.body.append(startBtn,pauseBtn,resumeBtn);
 });
 
+// listen for when the background scripts sends the timer' status
 chrome.runtime.onMessage.addListener((msg) => {
     pauseBtn.disabled = msg.status !== "started";
-    resumeBtn.disabled = !pauseBtn.disabled;
+    resumeBtn.disabled = !(pauseBtn.disabled);
 });
