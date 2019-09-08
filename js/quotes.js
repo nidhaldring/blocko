@@ -16,7 +16,7 @@ function createQuote(){
 }
 
 function createBackground(){
-    const backgroundsNumber = 1;
+    const backgroundsNumber = 4;
     const backgroundName = "background" + Math.ceil(Math.random() * backgroundsNumber) + ".jpg";
 
     document.body.style.backgroundImage = `url('../backgrounds/${backgroundName}')`;
