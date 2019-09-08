@@ -14,7 +14,7 @@
     },
 
     "background": {
-        "scripts": ["js/timer.js"]
+        "scripts": ["js/timer.js","js/main.js","js/events.js"]
     },
 
     "permissions": ["storage","tabs"],
