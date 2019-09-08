@@ -30,12 +30,9 @@ function workTimeFieldIsValid(){
 
 function initTextArea(){
     chrome.storage.local.get("sites",(res) => {
-        const textArea =  document.getElementById("text");
-
         if(res.sites.length > 0){
-           textArea.value = res.sites.join("\n");
+            document.getElementById("text").value = res.sites.join("\n");
         }
-
     });
 }
 
