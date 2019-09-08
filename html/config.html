@@ -30,15 +30,18 @@
 
 </head>
 
+<body>
+    
+    <p>Sites to block</p>
 
-<script src="../js/config.js"></script>
-<p>Sites to block</p>
+    <textarea id="text" cols="30" rows="20" placeholder="www.example.com">
+    </textarea>
 
-<textarea id="text" cols="30" rows="20" placeholder="www.example.com">
-</textarea>
+    <p>Producitivity Settings</p>
 
-<p>Producitivity Settings</p>
+    <span class="input">Work time : </span> <input type="number" min="1" max="999" id="workTime"> (m) <br/>
 
-<span class="input">Work time : </span> <input type="number" min="1" max="999" id="workTime"> (m) <br/>
+    <button id="save">Save</button>
+    <script src="../js/config.js"></script>
 
-<button id="save">Save</button>
+</body>
