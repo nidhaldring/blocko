@@ -1,14 +1,14 @@
 
 //filters
 
-function filterTextAreaValues(values){
-    return values.filter((e) => e.trim() !== "" );
+function trimArray(arr){
+    return arr.filter((e) => e.trim() !== "" );
 }
 
 // getter 
 
 function getTextAreaValues(){  
-    return filterTextAreaValues(document.getElementById("text").value.split("\n"));
+    return trimArray(document.getElementById("text").value.split("\n"));
 }
 
 // validators
@@ -68,9 +68,6 @@ function initSaveButton(){
 
 // main
 
-document.addEventListener("DOMContentLoaded",() => {
-    initTextArea();
-    initSaveButton();
-    initWorkTimeFiled();
-
-});
+initTextArea();
+initSaveButton();
+initWorkTimeFiled();
