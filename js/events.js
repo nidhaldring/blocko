@@ -3,6 +3,13 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.local.set({"sites":[]});
     chrome.storage.local.set({"workTime":45});
+    chrome.storage.local.set({"history":{
+            timePerWeek:0,
+            total:0,
+            timePerMonth:0,
+            timePerDay:0
+        }
+    });
 });
 
 
