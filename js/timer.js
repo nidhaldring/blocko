@@ -28,6 +28,7 @@ class Timer{
         this.status = "finished";
         this._ring();
         this._clear();
+        updateHistory();
     }
 
     _increment(){
