@@ -16,17 +16,16 @@ nav{
 
 .navBarItems{
 	padding-bottom: 0.01%;
-	margin-right: 5%;
 }
 
 nav ul li{
 	display: inline-block;
 	font-family: sans-serif;
-	margin-right: 30px;
+	margin-right: 4%;
 	padding: 1%;
 	color: rgba(255,255,255,0.6);
 	font-size: 1.25rem;
-	width: 100px;
+	width: 15%;
 	text-align: center;
 }
 
@@ -57,15 +56,11 @@ nav ul li{
 	font-size: 1rem;
 }
 
-<<<<<<< HEAD
 .settingsTitle{
-=======
-.title{
->>>>>>> styledExtension
 	color: #a60a0f;
 }
 
-.title:after{
+.settingsTitle:after{
 	content: "";
 	display: block;
 	background-color: rgba(0,0,0,0.4);
@@ -105,28 +100,3 @@ nav ul li{
 .inputField:hover{
 	border: 2px solid #03d3fc;
 }
-
-
-#about{
-	display: none;
-}
-
-.period{
-	display: inline-block;
-	width: 17%;
-	margin: 1%;
-	font-size: 1.5rem;
-	color: #302d3d;
-	font-weight: bold;
-	padding-right: 3%;
-	border-right: 1px dotted rgba(0,0,0,0.3);
-}
-.period:last-of-type{
-	border: none;
-}
-
-.time{
-	color: red;
-	margin-left: 20%;
-}
-

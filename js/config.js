@@ -71,8 +71,20 @@ function initNavItems(){
     document.getElementById("aboutBtn").onclick = () => changePagesStatus(false,false,true);
 }
 
-function initVersioField(){
+function initVersionField(){
     document.getElementById("version").innerText += " " + chrome.runtime.getManifest().version;
+}
+
+function initHistoryItems(){
+    chrome.storage.local.get("history",(res) => {
+        const history = res.history;
+        
+        document.getElementById("total").innerText = history.total;
+        document.getElementById("timePerDay").innerText = history.timePerDay;
+        document.getElementById("timePerMonth").innerText = history.timePerMonth;
+        document.getElementById("timePerWeek").innerText = history.timePerWeek;
+    });
+
 }
 
 // utils
@@ -93,6 +105,7 @@ document.addEventListener("DOMContentLoaded",() => {
     initTextArea();
     initSaveButton();
     initWorkTimeFiled(); 
-    initVersioField();
+    initVersionField();
+    initHistoryItems();
 });
 
