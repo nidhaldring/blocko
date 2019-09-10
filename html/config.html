@@ -25,10 +25,10 @@
     <div class="content">
         <div id="settings">
 
-            <h2 class="settingsTitle">Sites to Block</h2>
+            <h2 class="title">Sites to Block</h2>
             <textarea id="text" rows="10" cols="30" placeholder="www.site.com" class="inputField"></textarea>
 
-            <h2 class="settingsTitle">Work Time</h2>
+            <h2 class="title">Work Time</h2>
             working time : <input type="number" min="1" max="999" id="workTime" class="inputField"> (m)
 
             <button id="save">Save</button>
@@ -41,7 +41,27 @@
             <p id="version" style="font-size:1rem">Version : </p>
         </div>
 
-        <div id="history"></div>
+        <div id="history">
+            <h2 class="title">Analytics</h2>
+            <div class="period">
+                <p id="timePerDay" class="time"></p>                
+                <p>This Day</p>
+            </div>
+
+             <div class="period">
+                <p id="timePerWeek" class="time"></p>
+                <p>This Week</p>
+            </div>
+
+             <div class="period">
+                <p id="timePerMonth" class="time"></p>
+                <p>This Month</p>
+            </div>
+
+            <div class="period">
+                <p id="total" class="time"></p>
+                <p>In total</p>
+            </div>
 
     </div>      
 
