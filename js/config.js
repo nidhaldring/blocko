@@ -81,7 +81,7 @@ function initHistoryItems(){
         
         document.getElementById("total").innerText = history.total;
         document.getElementById("timePerDay").innerText = history.timePerDay;
-        document.getElementById("timePerMonth").innerText = history.timePerMonth;
+        document.getElementById("timePerMonth").innerText = history.timePerMonth[new Date().getMonth()] || 0;
         document.getElementById("timePerWeek").innerText = history.timePerWeek;
     });
 
