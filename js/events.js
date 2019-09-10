@@ -6,7 +6,7 @@ chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.local.set({"history":{
             timePerWeek:0,
             total:0,
-            timePerMonth:0,
+            timePerMonth:{},
             timePerDay:0
         }
     });
