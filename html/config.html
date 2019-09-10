@@ -1,46 +1,48 @@
 
+
 <head>
-    <style>
-        #text {
-            display: block;
-            margin: 2px;
-            padding: 2px;
-        }
-
-        p {
-            font-size: 2em;
-            margin: 1px;
-            font-family: cursive;
-            color: red;
-        }
-
-        button {
-            display: block;
-            background-color: red;
-            width: 5%;
-            margin: 3%;
-        }
-
-        .input{
-            display: inline-block;
-            margin: 1px;
-            width: 7%;
-        }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/config.js"></script>
 </head>
+
 
 <body>
 
-    <p>Sites to block</p>
+    <nav>
+        <div class="navBarContent">
+            <img src="../icons/icon.png"/>
+            <p id="configTitle">Blocko - your way to stay productive !</p>
+            <div class="navBarItems">
+                <ul>
+                    <li id="settingsBtn">Settings</li>
+                    <li id="historyBtn">History</li>
+                    <li id="aboutBtn">About</li>
+                </ul>
+            <div>
+        <div>
+    </nav>
 
-    <textarea id="text" cols="30" rows="20" placeholder="www.example.com"></textarea>
+    <div class="content">
+        <div id="settings">
 
-    <p>Producitivity Settings</p>
+            <h2 class="settingsTitle">Sites to Block</h2>
+            <textarea id="text" rows="10" cols="30" placeholder="www.site.com" class="inputField"></textarea>
 
-    <span class="input">Work time : </span> <input type="number" min="1" max="999" id="workTime"> (m) <br/>
+            <h2 class="settingsTitle">Work Time</h2>
+            working time : <input type="number" min="1" max="999" id="workTime" class="inputField"> (m)
 
-    <button id="save">Save</button>
-    <script src="../js/config.js"></script>
+            <button id="save">Save</button>
+        </div>
+
+        <div id="about">
+            <h2 style="color:rgb(235, 64, 52)">Blocko</h2>
+            <h3>Become a productivity guru !</h3>
+            <h4><a href="https://www.facebook.com/dtddtddtd" style="color:rgba(150, 90, 15,0.7)">@nidhal rnine</a></h4>
+            <p id="version" style="font-size:1rem">Version : </p>
+        </div>
+
+        <div id="history"></div>
+
+    </div>      
 
 </body>

@@ -26,6 +26,14 @@ function workTimeFieldIsValid(){
 }
 
 
+function saveConfigs(){
+    const sites = getTextAreaValues();
+    const workTime = Number(document.getElementById("workTime").value);
+
+    chrome.storage.local.set({sites});
+    chrome.storage.local.set({workTime});
+}
+
 // init funcs
 
 function initTextArea(){
@@ -42,13 +50,6 @@ function initWorkTimeFiled(){
     });
 }
 
-function saveConfigs(){
-    const sites = getTextAreaValues();
-    const workTime = Number(document.getElementById("workTime").value);
-
-    chrome.storage.local.set({sites});
-    chrome.storage.local.set({workTime});
-}
 
 function initSaveButton(){
     document.getElementById("save").onclick = () => {
@@ -63,8 +64,35 @@ function initSaveButton(){
     }
 }
 
+
+function initNavItems(){  
+    document.getElementById("settingsBtn").onclick = () => changePagesStatus(true,false,false);
+    document.getElementById("historyBtn").onclick = () => changePagesStatus(false,true,false);
+    document.getElementById("aboutBtn").onclick = () => changePagesStatus(false,false,true);
+}
+
+function initVersioField(){
+    document.getElementById("version").innerText += " " + chrome.runtime.getManifest().version;
+}
+
+// utils
+
+function changePagesStatus(settingsPageStatus,historyPageStatus,aboutPageStatus){
+
+    const boolToVisiblity = (bool) => bool ? "block" : "none"
+
+    document.getElementById("settings").style.display = boolToVisiblity(settingsPageStatus);
+    document.getElementById("history").style.display = boolToVisiblity(historyPageStatus);
+    document.getElementById("about").style.display = boolToVisiblity(aboutPageStatus);
+}
+
 // main
 
-initTextArea();
-initSaveButton();
-initWorkTimeFiled();
+document.addEventListener("DOMContentLoaded",() => {
+    initNavItems();
+    initTextArea();
+    initSaveButton();
+    initWorkTimeFiled(); 
+    initVersioField();
+});
+
