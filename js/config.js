@@ -13,13 +13,10 @@ function getTextAreaValues(){
 
 // utils
 
-function changePagesStatus(settingsPageStatus,historyPageStatus,aboutPageStatus){
-	
-    const boolToVisiblity = (bool) => bool ? "block" : "none"
-
-    document.getElementById("settings").style.display = boolToVisiblity(settingsPageStatus);
-    document.getElementById("history").style.display = boolToVisiblity(historyPageStatus);
-    document.getElementById("about").style.display = boolToVisiblity(aboutPageStatus);
+function changePagesDisplay(settingsPageDisplayStatus,historyPageDisplayStatus,aboutPageDisplayStatus){
+    document.getElementById("settings").style.display = settingsPageDisplayStatus;
+    document.getElementById("history").style.display = historyPageDisplayStatus;
+    document.getElementById("about").style.display = aboutPageDisplayStatus;
 }
 
 // validators
@@ -76,17 +73,17 @@ function initSaveButton(){
 }
 
 
-function initNavItems(){  
-    document.getElementById("settingsBtn").onclick = () => changePagesStatus(true,false,false);
-    document.getElementById("historyBtn").onclick = () => changePagesStatus(false,true,false);
-    document.getElementById("aboutBtn").onclick = () => changePagesStatus(false,false,true);
+function initNavItems(){
+    document.getElementById("settingsBtn").onclick = () => changePagesDisplay("block","none","none");
+    document.getElementById("historyBtn").onclick = () => changePagesDisplay("none","block","none");
+    document.getElementById("aboutBtn").onclick = () => changePagesDisplay("none","none","block");
 }
 
 function initVersionField(){
     document.getElementById("version").innerText += " " + chrome.runtime.getManifest().version;
 }
 
-function initHistoryItems(){
+function initHistoryPage(){
     chrome.storage.local.get("history",(res) => {
         const history = res.history;
         
@@ -106,6 +103,6 @@ document.addEventListener("DOMContentLoaded",() => {
     initSaveButton();
     initWorkTimeFiled(); 
     initVersionField();
-    initHistoryItems();
+    initHistoryPage();
 });
 
