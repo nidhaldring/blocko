@@ -11,6 +11,17 @@ function getTextAreaValues(){
     return trimArray(document.getElementById("text").value.split("\n"));
 }
 
+// utils
+
+function changePagesStatus(settingsPageStatus,historyPageStatus,aboutPageStatus){
+	
+    const boolToVisiblity = (bool) => bool ? "block" : "none"
+
+    document.getElementById("settings").style.display = boolToVisiblity(settingsPageStatus);
+    document.getElementById("history").style.display = boolToVisiblity(historyPageStatus);
+    document.getElementById("about").style.display = boolToVisiblity(aboutPageStatus);
+}
+
 // validators
 
 function textAreaIsValid(){
@@ -85,17 +96,6 @@ function initHistoryItems(){
         document.getElementById("timePerWeek").innerText = history.timePerWeek;
     });
 
-}
-
-// utils
-
-function changePagesStatus(settingsPageStatus,historyPageStatus,aboutPageStatus){
-
-    const boolToVisiblity = (bool) => bool ? "block" : "none"
-
-    document.getElementById("settings").style.display = boolToVisiblity(settingsPageStatus);
-    document.getElementById("history").style.display = boolToVisiblity(historyPageStatus);
-    document.getElementById("about").style.display = boolToVisiblity(aboutPageStatus);
 }
 
 // main
