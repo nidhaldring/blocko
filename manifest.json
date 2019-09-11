@@ -3,7 +3,7 @@
     "manifest_version": 2,
     "name": "blocko",
     "version": "1",
-    "description": "block unwanted website",
+    "description": "An extension that helps you stay productive",
 
     "icons": {
         "16": "icons/16.png",
