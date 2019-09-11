@@ -1,4 +1,16 @@
 
+<head>
+	<style>
+		img{
+			display: block;
+		}
+		img:first-of-type{
+			margin-top: 5%;
+		}
+	</style>
+
+</head>
+
 <p>
 The goal of this extension is to provide a helpful enviroment to be productive, it does so with the following features :
 </p>
@@ -10,3 +22,7 @@ The goal of this extension is to provide a helpful enviroment to be productive, 
 <li>analytics about your productivity</li>
 </ul>
 
+
+<img src="https://raw.githubusercontent.com/nidhaldring/blocko/master/screenshots/1.png" alt="screenshot 1"/>
+
+<img src="https://raw.githubusercontent.com/nidhaldring/blocko/master/screenshots/2.png" alt="screenshot "/>
