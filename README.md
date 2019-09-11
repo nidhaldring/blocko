@@ -1,16 +1,4 @@
 
-<head>
-	<style>
-		img{
-			display: block;
-		}
-		img:first-of-type{
-			margin-top: 5%;
-		}
-	</style>
-
-</head>
-
 <p>
 The goal of this extension is to provide a helpful enviroment to be productive, it does so with the following features :
 </p>
