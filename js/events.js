@@ -13,6 +13,7 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 
+// wait for a msg from the popup
 chrome.runtime.onMessage.addListener((msg) => {
     if(msg.text === "status"){
         sendTimerStatus();
@@ -22,6 +23,7 @@ chrome.runtime.onMessage.addListener((msg) => {
 });
 
 
+// block the new page if it's on the black list
 chrome.tabs.onUpdated.addListener((tabId,_,tab) => {
     if(timer.status == "started"){
         chrome.storage.local.get("sites",(res) => {
