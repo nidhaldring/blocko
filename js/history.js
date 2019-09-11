@@ -1,26 +1,45 @@
 
+function updateMonthlyTotal(history){
+	const currentMonth = new Date().getMonth();
+
+	if(history.month[currentMonth] === undefined){
+		history.month = {}; // delete the old data
+		history.month[currentMonth] = {total:0};
+	}
+	history.month[currentMonth].total += 1;
+}
+
+function updateDailyTotal(history){
+	const currentMonth = new Date().getMonth();
+	const currentDate = new Date().getDate();
+
+	if(history.month[currentMonth][currentDate] === undefined){
+			history.month[currentMonth][currentDate] = 0;
+	}
+	history.month[currentMonth][currentDate] += 1;
+}
+
+function updateWeeklyTotal(history){
+	const currentDate = new Date();
+	const numberOfSecondsPerWeek = 24 * 60 * 60 * 1000;
+
+	if(currentDate - history.fixedDate >= (7 * numberOfSecondsPerWeek)){
+		history.fixedDate = currentDate;
+		history.weeklyTotal = 1;
+	}else{
+		history.weeklyTotal += 1;
+	}
+}
+
 function updateHistory(){
 
 	chrome.storage.local.get("history",(res) => {
 		const history = res.history;
-		const currentDate = new Date();
 
 		history.total += 1;
-
-		// check if its start of a new week
-		if(currentDate.getDay() === 0){
-			history.timePerWeek = 1;
-		}else{
-			history.timePerWeek += 1;
-		}
-
-		// check if its start of a new month
-		if(history.timePerMonth[currentDate.getMonth()] === undefined){
-			history.timePerMonth = {}; // delete old data
-			history.timePerMonth[currentDate.getMonth()] = 1;
-		}else{
-			history.timePerMonth[currentDate.getMonth()] += 1;
-		}
+		updateMonthlyTotal(history);
+		updateDailyTotal(history);
+		updateWeeklyTotal(history);
 
 		chrome.storage.local.set({history});
 	});
