@@ -86,11 +86,19 @@ function initVersionField(){
 function initHistoryPage(){
     chrome.storage.local.get("history",(res) => {
         const history = res.history;
+        const currentMonth = new Date().getMonth();
+        const currentDate = new Date().getDate();
+        let timePerDay = timePerMonth = 0;
+
+        if(history.month[currentMonth] !== undefined){
+            timePerDay = history.month[currentMonth][currentDate] || 0;
+            timePerMonth = history.month[currentMonth].total;
+        }
         
         document.getElementById("total").innerText = history.total;
-        document.getElementById("timePerDay").innerText = history.timePerDay;
-        document.getElementById("timePerMonth").innerText = history.timePerMonth[new Date().getMonth()] || 0;
-        document.getElementById("timePerWeek").innerText = history.timePerWeek;
+        document.getElementById("timePerDay").innerText = timePerDay;
+        document.getElementById("timePerMonth").innerText = timePerMonth;
+        document.getElementById("timePerWeek").innerText = history.weeklyTotal;
     });
 
 }
