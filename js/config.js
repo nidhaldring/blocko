@@ -30,7 +30,7 @@ function textAreaIsValid(){
 
 function workTimeFieldIsValid(){
     const input = Number(document.getElementById("workTime").value);
-    return !isNaN(input) && input > 0 && input < 1000;
+    return Number.isInteger(input) && input > 0 && input < 1000 
 }
 
 
