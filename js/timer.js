@@ -84,7 +84,7 @@ function sendTimerStatus(){
 function createFinishingNotification(){
     chrome.notifications.create({
         type: "basic",
-        iconUrl: "../icons/128.png",
+        iconUrl: "icons/64.png",
         title: "Bravo !",
         message: "you've finished ! you can take some rest now"
     });
