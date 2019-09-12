@@ -64,7 +64,7 @@ function initSaveButton(){
         if(!textAreaIsValid()){
             alert("Input field is malformed !");
         }else if(!workTimeFieldIsValid()){
-            alert("Work time field should be a number between 1 and 999 !");
+            alert("Work time field should be an integer between 1 and 999 !");
         }else{
             saveConfigs();
             alert("saved sucessfully !");
