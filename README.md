@@ -13,4 +13,6 @@ The goal of this extension is to provide a helpful enviroment to be productive, 
 
 <img src="https://raw.githubusercontent.com/nidhaldring/blocko/master/screenshots/1.png" alt="screenshot 1"/>
 
-<img src="https://raw.githubusercontent.com/nidhaldring/blocko/master/screenshots/2.png" alt="screenshot "/>
+<img src="https://raw.githubusercontent.com/nidhaldring/blocko/master/screenshots/2.png" alt="screenshot 2"/>
+
+<img src="https://raw.githubusercontent.com/nidhaldring/blocko/master/screenshots/3.png" alt="screenshot 3"/>
