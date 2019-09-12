@@ -17,7 +17,7 @@
         "scripts": ["js/timer.js","js/main.js","js/events.js","js/history.js"]
     },
 
-    "permissions": ["storage","tabs"],
+    "permissions": ["storage","tabs","notifications"],
 
     "options_ui": {
         "page": "html/config.html",
