@@ -1,0 +1,21 @@
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+p{
+    text-align: center;
+    color: white;
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+#quote{
+    font-size: 2rem;
+    margin-top: 15%;
+    font-weight: bolder;
+}
+
+#author{
+    font-size: 1.5rem;
+}
