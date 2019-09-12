@@ -29,6 +29,8 @@ class Timer{
         this._ring();
         this._clear();
         updateHistory();
+        createFinishingNotification();
+        createFinishingPage();
     }
 
     _increment(){
@@ -76,4 +78,18 @@ class Timer{
 
 function sendTimerStatus(){
     chrome.runtime.sendMessage({status:timer.status});
+}
+
+
+function createFinishingNotification(){
+    chrome.notifications.create({
+        type: "basic",
+        iconUrl: "../icons/128.png",
+        title: "Bravo !",
+        message: "you've finished ! you can take some rest now"
+    });
+}
+
+function createFinishingPage(){ 
+    chrome.tabs.create({url: "html/finishingPage.html"});
 }
